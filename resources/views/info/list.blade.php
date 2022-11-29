@@ -1,19 +1,7 @@
 @extends('layout.master')
-
 @section('title', 'List of Job')
-
 @section('content')
 <h2>List of Job</h2>
-<p><a href="/create/job" class="btn btn-primary">Create Job</a></p>
-<div class="box-search">
-  <form action="/index" method="get" id="seachForm">
-  <div class="autocomplete" style="width:300px;">
-      Tìm kiếm thông tin:<input type="text" name="namework" id="searchName" list="search"
-        placeholder="Tim theo tieu de name..." value="{{$namework}}" />
-      <div class="autocomplete-items"></div>
-    </div>
-    <button type="submit">Tìm kiếm</button>
-  </form>
 </div>
 
 <table class="table">
@@ -30,7 +18,6 @@
       <th scope="col">phone</th>
       <th scope="col">email</th>
       <th scope="col">address</th>
-      <th scope="col">Crud</th>
     </tr>
   </thead>
   <tbody>
@@ -46,15 +33,10 @@
       <td>{{ $job->phone }}</td>
       <td>{{ $job->email }}</td>
       <td>{{ $job->address }}</td>
-      <td><a href="/admin/jobs/edit/{{ $job->id }}">Edit</a> | <a
-          href="/admin/jobs/delete/{{ $job->id }}">Delete</a> |
-        <a href="/admin/jobs/detail/{{ $job->id }}">View</a>
-      </td>
     </tr>
   </tbody>
     @endforeach
 </table>
 </body>
 </html>
-
 @stop

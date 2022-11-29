@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('infotion', function (Blueprint $table) {
-            $table->id();
-            $table->string('id');
-            $table->string('nameJob');
+        Schema::create('search_users', function (Blueprint $table) {
+            $table->string('recruitment');
+            $table->string('namework');
             $table->string('level');
             $table->string('age');
             $table->string('quantity');
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infotion');
+        Schema::dropIfExists('search_users');
     }
 };

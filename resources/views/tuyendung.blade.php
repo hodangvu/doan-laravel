@@ -1,118 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuyển Dụng</title>
-    <link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+@section('title', 'Create Job')
 
-<!-- <body>
-    <div class="wrap">
-        <div class="post-job">
-            <h2 class="dangtintuyendung">Đăng tin tuyển dụng</h2>
-            <div class="form-tuyen-dung">
-                <form  action="{{url('/user/create')}}" method = "POST">
-                    <div class="form-input">
-                        <label for="input-name">Tên công việc</label>
-                        <input type="text" placeholder="Nhập tên công việc">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-level">Cấp bậc tuyển dụng</label>
-                        <input type="text" placeholder="Nhập cấp bậc tuyển dụng">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Yêu cầu độ tuổi</label>
-                        <input type="text" placeholder="Nhập độ tuổi">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Số lượng tuyển</label>
-                        <input type="text" placeholder="Nhập số lượng tuyển">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Ngành nghề tuyển dụng</label>
-                        <input type="text" placeholder="Nhập tên ngành nghề tuyển dụng">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Trình độ</label>
-                        <input type="text" placeholder="Nhập trình độ ">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Mức lương</label>
-                        <input type="text" placeholder="Nhập mức lương">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Số năm kinh nghiệm</label>
-                        <input type="text" placeholder="Nhập số năm kinh nghiệm">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Hạn nộp hồ sơ</label>
-                        <input type="datetime" placeholder="Nhập hạn nộp hồ sơ">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Địa điểm tuyển dụng</label>
-                        <input type="text" placeholder="Nhập số năm kinh nghiệm">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Mô tả công việc</label>
-                        <input type="text" style="height: 200px;">
-                    </div>
-                    <p class="title-contact">Thông tin liên hệ</p>
-                    <div class="form-input">
-                        <label for="input-name">Người liên hệ</label>
-                        <input type="text" placeholder="Nhập người liên hệ">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Số điện thoại</label>
-                        <input type="text" placeholder="Nhập số điện thoại">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Email liên hệ</label>
-                        <input type="text" placeholder = "Nhập email liên hệ">
-                    </div>
-                    <div class="form-input">
-                        <label for="input-name">Địa chỉ</label>
-                        <input type="text" placeholder="Nhập địa chỉ">
-                    </div>
-
-                </form>
-            </div>
-            <button type="submit">Save</button>
-        </div>
+@section('content')
+<h2>Create Job</h2>
+<form action="/admin/create/write" method="post" enctype="multipart/form-data" class="form-horizontal"
+  id="createForm">
+  {{ csrf_field()}}
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="recruitment">Tin tuyển dụng <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="text" name="recruitment" class="form-control" id="recruitment" placeholder="Enter recruitment">
     </div>
-</body> -->
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="namework">Tên công việc <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="text" name="namework" class="form-control" id="namework" placeholder="Enter namework">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="level">Cấp bậc tuyển dụng <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="level" name="level" class="form-control" id="level" placeholder="Enter level">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="age">Độ tuổi <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="age" name="age" class="form-control" id="age" placeholder="Enter age">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="quantity">Số lượng <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="quantity" name="quantity" class="form-control" id="quantity" placeholder="Enter quantity">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="work">Ngành nghề <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="work" name="work" class="form-control" id="work" placeholder="Enter work">
+    </div>
+  </div>
 
-<body>
-    <form action="create-user" method="post">
-    @csrf
-        <div class="form-input">
-            <label for="input-name" >Tên công việc</label>
-            <input type="text" name="abc" placeholder="Nhập tên công việc">
-        </div>  
-        <div class="form-input">
-            <label for="input-name" >Ho Va Ten</label>
-            <input type="text" name ="fullname" placeholder="Nhập số lượng tuyển">
-        </div>
-        <div class="form-input">
-            <label for="input-level" >level</label>
-            <input type="text" name = "level" placeholder="Nhập cấp bậc tuyển dụng">
-        </div>
-        <div class="form-input">
-            <label for="input-name" >Yêu cầu độ tuổi</label>
-            <input type="text" name = "age" placeholder="Nhập độ tuổi">
-        </div>
-        <div class="form-input">
-            <label for="input-name">Số lượng tuyển</label>
-            <input type="text"  name ="quanlity" placeholder="Nhập số lượng tuyển">
-        </div>
-        
-        <button type="submit">Save</button>
-    </form>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="phone">Số điện thoại <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="phone" name="phone" class="form-control" id="phone" placeholder="Enter phone">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="address">Địa chỉ <span class="text-danger">(*)</span>:</label>
+    <div class="col-sm-6">
+      <input type="address" name="address" class="form-control" id="address" placeholder="Enter address">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
 </body>
 
 </html>
+@stop

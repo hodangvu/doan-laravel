@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
   
@@ -40,7 +40,7 @@ Route::post('create-user', [CreateUserController::class, 'userCreate']);
 
 
 Route::get('/tuyendung',function(){
-    return view('job.create');
+    return view('tuyendung');
 });
 Route::namespace('Admin')-> prefix('admin')-> name('admin.')->group(function(){
     
@@ -71,3 +71,6 @@ Route::post('/admin/jobs/update/{id}', [CreateUserController::class, 'update']);
 
 //getUser
 Route::get('/abc', [UserController::class, 'getUser'])->name('getUser');
+Route::get('/search', function () {
+    return view('search');
+});
