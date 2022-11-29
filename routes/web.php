@@ -32,10 +32,10 @@ require __DIR__.'/auth.php';
   
 
 // Admin 
-Route::get('login', [AuthenController::class, 'create'])
-                ->name('create');
+// Route::get('login', [AuthenController::class, 'create'])
+//                 ->name('create');
  
-Route::post('create-user', [CreateUserController::class, 'userCreate']);
+// Route::post('create-user', [CreateUserController::class, 'userCreate']);
 
 
 
